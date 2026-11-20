@@ -1,25 +1,80 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>GTA VI trophy checklist</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101b20">
+  <title>Leonida Field Guide — GTA VI trophies</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header>
-  <h1>GTA VI trophy checklist</h1>
-  <p id="progress">0 of 55 earned</p>
-</header>
-<div class="controls">
-  <label>Grade <select id="grade"><option value="all">All</option><option value="platinum">Platinum</option><option value="gold">Gold</option><option value="silver">Silver</option><option value="bronze">Bronze</option></select></label>
-  <button id="export" type="button">Export progress</button>
-  <label class="import">Import progress <input id="import" type="file" accept="application/json"></label>
-</div>
-<table>
-  <thead><tr><th>Earned</th><th>Trophy</th><th>Grade</th><th>How to get it</th></tr></thead>
-  <tbody id="rows"></tbody>
-</table>
-<script type="module" src="app.js"></script>
+  <header class="masthead">
+    <a class="brand" href="#top" aria-label="Leonida Field Guide home">
+      <span class="brand-mark" aria-hidden="true">L</span>
+      <span>LEONIDA <b>FIELD GUIDE</b></span>
+    </a>
+    <span class="edition">PLAYSTATION 5 <i></i> 55 TROPHIES</span>
+  </header>
+
+  <main id="top">
+    <section class="intro">
+      <div class="intro-copy">
+        <p class="eyebrow"><span>FIELD NOTES 01</span> · VICE CITY & BEYOND</p>
+        <h1>The road to<br><em>Leonida Legend.</em></h1>
+        <p class="lede">A spoiler-aware trophy tracker, practical route notes, and one calm plan for the platinum.</p>
+      </div>
+      <aside class="progress-card" aria-label="Trophy progress">
+        <div class="progress-heading"><span>YOUR RUN</span><strong id="progress-count">0 <small>/ 55</small></strong></div>
+        <div class="progress-track" role="progressbar" aria-label="Trophies earned" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span id="progress-fill"></span></div>
+        <div class="progress-foot"><span id="progress-percent">0% complete</span><span id="grade-summary">1 platinum · 2 gold · 6 silver · 46 bronze</span></div>
+      </aside>
+    </section>
+
+    <section class="toolbar" aria-label="Tracker controls">
+      <div class="filter-block">
+        <span class="control-label">TROPHY INDEX</span>
+        <div class="filters" role="group" aria-label="Filter by kind">
+          <button class="filter active" type="button" data-kind="all">All <span>55</span></button>
+          <button class="filter" type="button" data-kind="story">Story</button>
+          <button class="filter" type="button" data-kind="missable">Missable <span>0*</span></button>
+          <button class="filter" type="button" data-kind="collectibles">Collectibles</button>
+          <button class="filter" type="button" data-kind="activities">Activities</button>
+        </div>
+      </div>
+      <div class="tools">
+        <label class="search-wrap"><span class="sr-only">Search trophies</span><span aria-hidden="true">⌕</span><input id="search" type="search" placeholder="Find a trophy" autocomplete="off"></label>
+        <label class="spoiler-toggle"><input id="spoiler-toggle" type="checkbox"><span class="switch" aria-hidden="true"></span><span>Hide story spoilers</span></label>
+      </div>
+    </section>
+    <p class="caution" id="status-note">* No missable trophy has been independently verified. Route and missability notes are explicitly provisional.</p>
+
+    <section class="workspace" aria-label="Trophy tracker and selected guide">
+      <div class="list-panel">
+        <div class="panel-top"><h2>All trophies <span id="visible-count">55</span></h2><span class="sort-note">SORTED BY OFFICIAL LIST</span></div>
+        <div id="trophy-list" class="trophy-list" aria-live="polite"></div>
+      </div>
+      <article id="detail-panel" class="detail-panel" aria-live="polite"></article>
+    </section>
+
+    <section id="roadmap" class="roadmap">
+      <div class="section-heading">
+        <div><p class="eyebrow">A LOW-SPOILER ROUTE</p><h2>Roadmap to the platinum</h2></div>
+        <p>Built only from the supplied trophy descriptions. Chapter order is known where named; undisclosed routes and lockouts stay marked unconfirmed.</p>
+      </div>
+      <p class="roadmap-alert"><strong>MISSABLE CHECK</strong> No missable flag is verified in the available sources; this is not confirmation that every trophy is safe to leave until later.</p>
+      <div id="roadmap-steps" class="roadmap-grid"></div>
+    </section>
+
+    <footer class="page-footer">
+      <span>LEONIDA FIELD GUIDE <b>·</b> AN INDEPENDENT TRACKER</span>
+      <div class="backup-tools">
+        <button id="export-button" type="button">Export progress <span aria-hidden="true">↗</span></button>
+        <label class="import-button">Import file <input id="import-file" type="file" accept="application/json,.json"></label>
+        <span id="import-status" role="status"></span>
+      </div>
+      <p>Guide routes are provisional where the official trophy text does not specify a trigger.</p>
+    </footer>
+  </main>
+  <script type="module" src="app.js"></script>
 </body>
 </html>

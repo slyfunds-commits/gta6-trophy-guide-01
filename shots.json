@@ -1,5 +1,5 @@
 [
-  { "file": "1-checklist.jpg", "path": "/", "viewport": { "width": 1280, "height": 800 } },
-  { "file": "2-silver.jpg", "path": "/", "grade": "silver", "viewport": { "width": 1280, "height": 800 } },
-  { "file": "3-bronze.jpg", "path": "/", "grade": "bronze", "scroll": 1400, "viewport": { "width": 1280, "height": 800 } }
+  { "file": "1-field-guide.jpg", "path": "/", "view": "Cover: full checklist, progress, filters, selected trophy guide and citation open", "viewport": { "width": 1280, "height": 800 } },
+  { "file": "2-roadmap.jpg", "path": "/#roadmap", "view": "Platinum roadmap with source links and explicit unverified missability notice", "viewport": { "width": 1280, "height": 800 } },
+  { "file": "3-spoiler-filter.jpg", "path": "/", "view": "Story filter active with unearned story names and details hidden", "viewport": { "width": 1280, "height": 800 } }
 ]
